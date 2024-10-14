@@ -177,7 +177,6 @@ class CoffeWeb extends React.Component{
     return(
       <>
       <WelcomeHeader/>
-      <Header/>
       <Hero/>
       </>
     )
