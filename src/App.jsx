@@ -9,6 +9,13 @@ import PrevButton from './img/previous-button.png';
 import Scratch  from './img/scratch.png';
 import Arabica from './img/arabica-coffe.png';
 import Robusta from './img/robusta-coffe.png';
+import Ads from './img/ads.png';
+import Star from './img/star.png';
+import BlackCoffe from './img/black-coffe.png';
+import BijiCoffe from './img/locate-coffe-info.png';
+import Arabic from './img/arabica.png';
+import ArabicaWhite from './img/arabica-white.png';
+import Liberica from './img/liberica.png';
 
 
 function Header(){
@@ -87,13 +94,9 @@ function WelcomeHeader(){
     </div>
   )
 }
-class Hero extends React.Component{
-  constructor(props){
-    super(props)
-  }
-  Page1(){
-    return(
-      <div className='page-1'>
+function Page1(){
+  return(
+    <div className='page-1'>
         <div className="page-1-image">
           <img src={ImageCoffe} alt="page-1-image"/>
         </div>
@@ -113,14 +116,14 @@ class Hero extends React.Component{
       </div>
     )
   }
-  Line(){
+  function Line(){
     return(
       <div className="line">
         <p>fairtrade   |   Organic   |   Climate neutral</p>
       </div>
     )
   }
-  CoffeProduct(){
+  function CoffeProduct(){
     return(
       <>
         <div className="coffe-product">
@@ -147,25 +150,127 @@ class Hero extends React.Component{
       </>
     )
   }
-  AestheticAds(){
+  function AestheticAds(){
     return(
       <div className='aesthetic-ads'>
-        
+        <img src={Ads} alt="" />
       </div>
     )
   }
-  render(){
+  function WordsCoffe(){
+    return(
+      <div className="words-coffe">
+        <div className="words-coffe-text">
+          <div className="star">
+            <img src={Star} alt="" />
+            <img src={Star} alt="" />
+            <img src={Star} alt="" />
+            <img src={Star} alt="" />
+            <img src={Star} alt="" />
+          </div>
+          <h1>"ANOTHER REASON PEOPLE JUST CAN'T KEEP AWAY FROM <br /> THEIR LOCAL COFFE SHOP IS THE QUALITY OF COFFE <br /> THAT'S ON OFFER."</h1>
+          <p>Henry Monro</p>
+          <ul>
+            <li>  </li>
+            <li>  </li>
+            <li>  </li>
+          </ul>
+        </div>
+        <div className="words-coffe-image">
+          <img src={BlackCoffe} alt="" />
+        </div>
+      </div>
+    )
+  }
+  function LocateCoffe(){
+    const ShopLocation = [
+      {nama: "Lisbon Coffe Salon", text: 'Sunset Avenue 21 ,1102 ,Lisbon ', 
+        telp: '020-7718364', day1: 'mon-fri.........6.45-3.00pm', 
+        day2: 'sat-sun.........8.30-4.00pm', img: ImageCoffe},
+      {nama: 'Berlin Coffe Roasterry', text: 'keikergard 50 ,921 ,Berlin ', 
+        telp: '020-7718364', day1: 'mon-fri.........6.45-3.00pm', 
+        day2: 'sat-sun.........8.30-4.00pm', img: BlackCoffe},
+      {nama: 'Amsterdam Centre Coffe',text: 'Weteringstraat 48 ,921 ,Berlin ', 
+        telp: '020-7718364', day1: 'mon-fri.........6.45-3.00pm', 
+        day2: 'sat-sun.........8.30-4.00pm', img: BijiCoffe}
+    ]
+    const [activePage, setactivePage] = useState(0)
+    const thisActivePage = (PageIndex) => {
+      setactivePage(PageIndex)
+    }
+    const ThePage = ({active}) => {
+      return(
+        <div className="locate-coffe-info">
+          <img src={ShopLocation[active].img} alt="" />
+          <div className='locate-coffe-info-text'>
+            <h1>{ShopLocation[active].nama}</h1>
+            <p className='first'>{ShopLocation[active].text} <br />
+              tel : {ShopLocation[active].telp} <br />
+              Email : EarlyBirds@info.com</p>
+            <p className='second'>{ShopLocation[active].day1} <br />
+              {ShopLocation[active].day2}</p>
+            <button>CONTACT US</button>
+          </div>
+        </div>
+      )
+    }
+    return(
+      <div className="locate-coffe">
+        {ShopLocation.map((shop, index) =>(
+          <>
+            <div className="locate-coffe-name" onClick={() => thisActivePage(index)}>
+              <h1>{shop.nama}</h1>
+            </div>
+            {activePage === index && <ThePage active={activePage}/>}
+          </>
+        ))}
+      </div>
+    )
+  }
+  function Line2(){
+    return(
+      <div className="line-2">
+        <h1>THE COFFE THAT'S RIGHT FOR YOU</h1>
+      </div>
+    )
+  }
+  function CoffeProductFull(){
+    const CoffeDetail = [
+      {name: 'FRENCH ROAST', price: '$37.00', img: Arabic},
+      {name: 'DECAF ESPRESSO', price: '$41.00', img: Robusta},
+      {name: 'COSTA RICA', price: '$36.00', img: Liberica},
+      {name: ' DECAF FRENCH ROAST', price: '$45.00', img: ArabicaWhite},
+      
+    ]
+    return(
+      <div className="coffe-product-full">
+        {CoffeDetail.map((coffe)=>(
+          <div className='the-product'>
+            <img src={coffe.img} alt="image-of-coffe-product" />
+            <div className="product-text">
+              <h1>{coffe.name}</h1>
+              <p>{coffe.price}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    )
+  }
+  function Hero() {
     return(
       <>
         <div className="hero">
-          {this.Page1()}
-          {this.Line()}
-          {this.CoffeProduct()}
-          {this.AestheticAds()}
+          <Page1/>
+          <Line/>
+          <CoffeProduct/>
+          <AestheticAds/>
+          <WordsCoffe/>
+          <LocateCoffe/>
+          <Line2/>
+          <CoffeProductFull/>
         </div>
       </>
     )
-  }
 }
 
 class CoffeWeb extends React.Component{
@@ -177,6 +282,7 @@ class CoffeWeb extends React.Component{
     return(
       <>
       <WelcomeHeader/>
+      <Header />
       <Hero/>
       </>
     )

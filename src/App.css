@@ -1,5 +1,7 @@
 body{
-  position: static;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 .welcome-header{
   height: 30px;
@@ -74,24 +76,31 @@ body{
 .hero{
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .page-1{
   display: flex;
-  max-width: 1920px;
+  max-width: 100%;
   height: 100vh;
   z-index: 1;
   top: 0;
   position: relative;
 }
+.page-1-image{
+  height: 100vh;
+  width: 50%;
+  position: relative;
+  z-index: 1;
+}
 .page-1-image img{
   object-fit: cover;
-  height: 100vh;
-  width: 653px;
-  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 .page-1-aside{
   display: flex;
-  width: 700px;
+  width: 50%;
   height: 100vh;
 }
 .page-1-aside-text{
@@ -99,7 +108,6 @@ body{
   margin: 150px 150px;
   width: 300px;
   height: 330px;
-
 }
 .page-1-aside-text h1{
   line-height: 100px;
@@ -129,7 +137,7 @@ body{
   justify-content: center;
   background-color: #FBED81;
   cursor: pointer;
-
+  z-index: 2;
 }
 .next-page-button{
   right: 0;
@@ -148,6 +156,8 @@ body{
   justify-content: center;
   border: 1px solid #000;
   padding: 25px;
+  position: relative;
+  z-index: 1;
 }
 .line p{
   font-family: "Space Mono", monospace;
@@ -212,5 +222,149 @@ body{
   font-size: 13px;
 }
 .aesthetic-ads{
-  background-image: url('./img/ads.png');
+  width: 100%;
+  position: relative;
+}
+.aesthetic-ads img{
+  width: 100%;
+  display: block;
+}
+.words-coffe{
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+.words-coffe-text{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.words-coffe-text h1{
+  font-size: 22px;
+  font-weight: 100;
+  font-family: 'Anton', sans-serif;
+  text-align: center;
+  margin: 20px 0 90px 0;
+}
+.words-coffe-text p{
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+}
+.words-coffe-text ul{
+  display: flex;
+  list-style-type:circle;
+}
+.words-coffe-image{
+  width: 50%;
+}
+.words-coffe-image img{
+  width: 100%;
+  display: block;
+}
+.locate-coffe{
+  display: flex;
+  width: 100%;
+  height: 90vh;
+  background-color: #F8F8F8;
+  border: 1px solid #202020;
+}
+.locate-coffe-name{
+  width: 40px;
+  height: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  padding: 40px ;
+  border-left: 1px solid #202020;
+  border-right: 1px solid #202020;
+  cursor: pointer;
+}
+.locate-coffe-name h1{
+  writing-mode: vertical-lr;
+  font-size: 30px;
+  font-family: 'Anton', sans-serif;
+}
+.locate-coffe-info{
+  display: flex;
+  padding: 50px;
+  width: 1100px;
+}
+.locate-coffe-info img{
+  height: 70vh;
+  width: 90vh;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 40px;
+}
+.locate-coffe-info-text{
+  padding: 40px 0;
+}
+.locate-coffe-info-text h1{
+  font-size: 30px;
+  font-weight: 100;
+  font-family: 'Anton', sans-serif;
+}
+.locate-coffe-info-text p{
+  font-size: 13px;
+  font-family: 'Space Mono', monospace;
+  margin: 20px 0 20px 0;
+}
+.locate-coffe-info-text .first{
+  line-height: 25px;
+}
+.locate-coffe-info-text button{
+  font-family: 'Anton', sans-serif;
+  color: #fff;
+  background-color: #000;
+  letter-spacing: 2px;
+  font-weight: 100;
+  margin-top: 10px;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+}
+.line-2{
+  width: 100%;
+  height: 100px;
+  padding: 55px;
+  display: flex;
+  align-items: center;
+}
+.line-2 h1{
+  font-family: 'Anton', sans-serif;
+  font-size: 45px;
+  font-weight: 100;
+}
+.coffe-product-full{
+  display: flex;
+  width: 100%;
+  height: 60vh;
+}
+.the-product{
+  width: 25%;
+  height: 100%;
+  border: 1px solid #202020;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.the-product img{
+  margin-top: 20px;
+  width: 80%;
+}
+.product-text{
+  width: 100%;
+  padding: 30px;
+}
+.product-text h1{
+  font-size: 20px;
+  font-family: 'Anton', sans-serif;
+  font-weight: 100;
+}
+.product-text p{
+  font-size: 12px;
+  font-family: 'Space Mono', monospace;
 }
