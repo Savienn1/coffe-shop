@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react'
+import React, { useState } from 'react'
 import './App.css';
 import HeaderIcon from './img/header-icon.png';
 import Logo1 from './img/logo-1.png';
