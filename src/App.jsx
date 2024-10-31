@@ -9,6 +9,7 @@ import PrevButton from './img/previous-button.png';
 import Scratch  from './img/scratch.png';
 import Arabica from './img/arabica-coffe.png';
 import Robusta from './img/robusta-coffe.png';
+import RoundText from './img/round-text.png';
 import Ads from './img/ads.png';
 import Star from './img/star.png';
 import BlackCoffe from './img/black-coffe.png';
@@ -16,6 +17,7 @@ import BijiCoffe from './img/locate-coffe-info.png';
 import Arabic from './img/arabica.png';
 import ArabicaWhite from './img/arabica-white.png';
 import Liberica from './img/liberica.png';
+import SmallBread from './img/small-bread.png';
 
 
 function Header(){
@@ -256,6 +258,71 @@ function Page1(){
       </div>
     )
   }
+  function TheDetails(){
+    const ShopDetails = [
+      {head: "DELIVERY", text: "vivamous hendrerit at sapien nec mattis. Quisque quis arcu"},
+      {head: "WHOLESALE", text: "Pallentesque in tempor lore, vel portitor est."},
+      {head: "CONSISTENCY", text: "Aliqium ut arcu sodales, gravida quam vitae."},
+      {head: "QUALITY", text: "nam at sapien ligula. morbi maximus scelerisque mi sed."}
+    ]
+    return(
+      <div className="the-details">
+        <div className="the-details-head">
+          <h1>SWING BY OUR PLACE <br/> WE ALSO HAVE FOOD <span><img src={RoundText} alt="" /></span></h1>
+          <img src={SmallBread} alt="" />
+        </div>
+        <div className="the-details-aside">
+          {ShopDetails.map((detail)=>(
+            <div className="the-details-aside-point">
+              <div className="the-details-aside-text">
+                <h1>{detail.head}</h1>
+                <p>{detail.text}</p>
+              </div>
+              <a href="">View more <span><img src={NextButton}/></span></a>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+  function Reserving(){
+    const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
+    const [time, setTime] = useState(new Date().toTimeString().slice(0, 5));
+    
+    const personOptions = Array.from({ length: 7 }, (_, i) => `${i + 1} Person`);
+    
+    return (
+      <div className="reserving">
+        <h1>RESERVE YOUR TABLE</h1>
+        <div className="reserving-form">
+          <select name="person" id="person-select" className='reserving-input'>
+            {personOptions.map((option, index) => (
+              <option key={index} value={option}>
+                <label htmlFor="">{option}</label></option>
+            ))}
+          </select>
+          <div className="reserving-input">
+            <label htmlFor="input-date">{date}</label>
+            <input
+              type="date"
+              id="input-date"
+              onChange={(e) => setDate(e.target.value)}
+              />
+          </div>
+          <div className="reserving-input">
+            <label htmlFor="input-time">{time}</label>
+            <input
+              type="time"
+              id="input-time"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+            />
+          </div>
+      </div>
+      </div>
+    );
+  }
+  
   function Hero() {
     return(
       <>
@@ -268,6 +335,8 @@ function Page1(){
           <LocateCoffe/>
           <Line2/>
           <CoffeProductFull/>
+          <TheDetails/>
+          <Reserving/>
         </div>
       </>
     )
